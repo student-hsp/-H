@@ -5,7 +5,7 @@
   $ip=$_GET["ip"];
   $txt = "时间：【".date('Y-m-d H:i:s')."】\n";
   $data=$txt."内容：".$history."\n"."ip：". $ip."\n";
-  $myfile = file_put_contents("./text.txt",$data,FILE_APPEND);
+  $myfile = file_put_contents("text.txt",$data,FILE_APPEND);
   // $myfile = fopen("./text.txt", "a") or die("Unable to open file!");
   // $txt = "时间：【".date('Y-m-d H:i:s')."】\n";
   // fwrite($myfile, $txt);
