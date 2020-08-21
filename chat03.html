@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="小H树洞,云在线,小H">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>小H -云在线</title>
+    <style>
+        body {
+          margin: 0;
+          /* padding: 20px; */
+        }
+        .clearfix::before,
+        .clearfix::after {
+          content: '';
+          visibility: hidden;
+          clear: both;
+          line-height: 0;
+          height: 0;
+          display: block;
+        }
+    
+        .clearfix {
+          zoom: 1;
+        }
+    
+        .f_l {
+          float: left;
+        }
+    
+        .f_r {
+          float: right;
+        }
+    
+        .container {
+          width: 100%;
+          height: 654px;
+          border: 1px solid skyblue;
+          border-radius: 10px;
+          overflow-x: hidden;
+          overflow-y: hidden;
+        }
+    
+        .message {
+          /* border-bottom: 1px solid skyblue; */
+          height: 596px;
+          overflow-y: scroll;
+          padding: 20px;
+          box-sizing: border-box;
+          transition: all 2s;
+          margin-right: -18px;
+          width: 100%;
+          background-size: 100% 100%;
+          background-image: url("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1597936604009&di=ffa5133ae3c701b12bb4f72d76219061&imgtype=0&src=http%3A%2F%2Fimgsrc.baidu.com%2Fforum%2Fw%3D580%2Fsign%3D156d99f9860a19d8cb03840d03fb82c9%2F4027ba8f8c5494ee29cdcf512bf5e0fe9b257e81.jpg");
+        }
+    
+        .control {
+          height: 300px;
+          box-sizing: border-box;
+          padding-left: 20px;
+          padding-right: 20px;
+          background-color: #EDEBF0;
+        }
+    
+        .inputBox {
+          height: 40px;
+          margin-top: 10px;
+          border-radius: 6px;
+          outline: none;
+          padding: 0;
+          box-sizing: border-box;
+          width: 75%;
+          font-size: 30px;
+          box-shadow: 0 0 3px gray;
+          border: 1px solid #ccc;
+          transition: all .2s;
+          padding-left: 10px;
+        }
+    
+        .inputBox:focus {
+          border-color: skyblue;
+          box-shadow: 0 0 3px skyblue;
+        }
+    
+        .sendButton {
+          height: 40px;
+          margin-top: 10px;
+          margin-left: 10px;
+          background-color: yellowgreen;
+          width: 21%;
+          border: none;
+          outline: none;
+          border-radius: 10px;
+          color: white;
+          font-size: 20px;
+          font-family: '微软雅黑';
+          cursor: pointer;
+        }
+    
+        .message>div>a {
+          text-decoration: none;
+          width: 50px;
+          height: 50px;
+          border-radius: 50%;
+          background-color: skyblue;
+          text-align: center;
+          line-height: 50px;
+          color: white;
+          font-size: 25px;
+          font-weight: 700;
+          font-family: '微软雅黑';
+        }
+        .message>.robot>a {
+          /* background-color: hotpink; */
+          background-size: 100% 100%;
+          background-image: url("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1597938578615&di=4b0b89e03c5e6e3495548dde188d92da&imgtype=0&src=http%3A%2F%2Fimgsrc.baidu.com%2Fforum%2Fw%3D580%2Fsign%3Dc9dbc60269380cd7e61ea2e59145ad14%2F0ea0726d55fbb2fb3ab361a0434a20a44723dcb2.jpg");
+        }
+    
+        .message>.self>a {
+          /* background-color: yellowgreen; */
+          background-size: 100% 100%;
+          background-image: url("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1597937950870&di=6149ed76b28e8689027ff671f7a3fdef&imgtype=0&src=http%3A%2F%2F5b0988e595225.cdn.sohucs.com%2Fimages%2F20171005%2F03dbafa48e3b46c28a0d4b7096126b60.gif");
+        }
+    
+        .message>div {
+          padding: 10px 0;
+        }
+    
+        .message>div>p {
+          max-width: 200px;
+          min-height: 28px;
+          margin: 0 10px;
+          padding: 10px 10px;
+          background-color: #ccc;
+          border-radius: 10px;
+          word-break: break-all;
+          position: relative;
+          line-height: 28px;
+          font-weight: 400;
+          font-family: '微软雅黑';
+          color: white;
+          font-size: 18px;
+        }
+    
+        .message>.robot>p {
+          background-color: white;
+          color:black;
+        }
+    
+        .message>.robot>p::before {
+          content: '';
+          position: absolute;
+          border-top: 6px solid transparent;
+          border-bottom: 6px solid transparent;
+          border-right: 6px solid white;
+          left: -5px;
+          top: 15px;
+        }
+    
+        .message>.self>p {
+          color: black;
+        }
+    
+        .message>.self>p::before {
+          content: '';
+          position: absolute;
+          border-top: 6px solid transparent;
+          border-bottom: 6px solid transparent;
+          border-left: 6px solid #ccc;
+          right: -6px;
+          top: 15px;
+        }
+      </style>
+</head>
+<body>
+        <h1 style="text-align: center;">在线机器人</h1>
+        <div class="container">
+          <div class="message" id="page">
+            <div class="robot clearfix">
+              <a href="#" class='f_l'></a>
+              <p class='f_l'>我就知道你想我了</p>
+            </div>
+            <!-- 隐藏的 自己聊天框 -->
+        <div id='hidden_self' class="self clearfix" style='display:none'>
+            <a href="#" class="f_r"></a>
+            <p class="f_r">123213</p>
+          </div>
+          </div>
+          <div class="control">
+            <input type="text" class='inputBox f_l'>
+            <input type="button" class='sendButton f_r' value='发 送'>
+          </div>
+        </div>
+      <!-- 导入jQuery   -->
+      <script src="./jquery.min-1.72.js"></script>
+      <script>
+        // var ipXHR=new XMLHttpRequest();
+        //     ipXHR.open("post","http://pv.sohu.com/cityjson");
+        //     ipXHR.onload=function(){
+        //     // console.log(ipXHR.responseText);
+        // };
+        //     ipXHR.send(null);
+          $(function(){
+            $.ajax({
+                type:"get",
+                async:false,
+                url:"http://ip-api.com/json/",
+                dataType: 'jsonp',  
+                data:null,
+                crossDomain: true,  
+                success:function(data){
+                  console.log(data.query);
+                  ip=data.query;
+                },error:function(msg){
+                  alert(msg);
+                }
+            });
+            var page=document.getElementById("page");
+            $(".sendButton").click(function(){
+                $name=$(".inputBox").val();
+                if($name.trim()!=""){
+                  var hisXHR=new XMLHttpRequest();
+                  hisXHR.open("get","./chat03.php?info="+$name+"&ip="+ip);
+                  hisXHR.onload=function(){
+                  console.log(hisXHR.responseText);
+                };
+                hisXHR.send(null);
+                }
+                var $self=$(".self").first().clone();
+                $(".message").append($self);
+                $self.show();
+                $self.find("p").html($(".inputBox").val());
+                $(".inputBox").val("");
+                page.scrollTop=page.scrollHeight-page.clientHeight;
+                var xhr=new XMLHttpRequest();
+                xhr.open("post","http://www.tuling123.com/openapi/api");
+                xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+                xhr.onload=function(){
+                    console.log(xhr.responseText);
+                    $robo=$(".robot").first().clone();
+                    $(".message").append($robo);
+                    $robo.find("p").html($.parseJSON(xhr.responseText).text);
+                    page.scrollTop=page.scrollHeight-page.clientHeight;
+                };
+                xhr.send('key=5bd7d15600cf44848e68f7741a5b3542&info='+$name);
+                // xhr.send("key=850d508f2be44055a621cd67a6f61bb0&info="+$("inputBox").val());
+            });
+          });
+      </script>
+</body>
+</html>
